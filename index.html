@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Meteorológico</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        input, button {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        .dashboard {
+            display: none;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .edit-profile {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Sistema Meteorológico</h1>
+    </header>
+    <div class="container" id="login-container">
+        <form id="login-form">
+            <label for="username">Usuário:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Senha:</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="button" onclick="login()">Login</button>
+        </form>
+    </div>
+
+    <div class="container dashboard" id="dashboard-container">
+        <h2>Dashboard</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Temperatura</th>
+                    <th>Condição do Tempo</th>
+                    <th>Umidade</th>
+                    <th>% de Precipitação</th>
+                    <th>Pressão Atmosférica</th>
+                </tr>
+            </thead>
+            <tbody id="weather-data"></tbody>
+        </table>
+        <button onclick="showEditProfile()">Editar Perfil</button>
+    </div>
+
+    <div class="container edit-profile" id="edit-profile-container">
+        <h2>Editar Perfil</h2>
+        <!-- Adicione campos para editar informações do usuário -->
+        <button onclick="hideEditProfile()">Voltar</button>
+    </div>
+
+    <script>
+        function login() {
+            // Adicione a lógica de autenticação e exibição do dashboard aqui
+            document.getElementById("login-container").style.display = "none";
+            document.getElementById("dashboard-container").style.display = "block";
+        }
+
+        function showEditProfile() {
+            document.getElementById("dashboard-container").style.display = "none";
+            document.getElementById("edit-profile-container").style.display = "block";
+        }
+
+        function hideEditProfile() {
+            document.getElementById("edit-profile-container").style.display = "none";
+            document.getElementById("dashboard-container").style.display = "block";
+        }
+    </script>
+</body>
+</html>
